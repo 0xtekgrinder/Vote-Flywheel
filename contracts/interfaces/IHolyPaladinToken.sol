@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: Unlicensed
-pragma solidity 0.8.20;
+pragma solidity ^0.8.0;
 
 interface IHolyPaladinToken {
-    
+
 	struct UserLock {
         // Amount of locked balance
         uint128 amount; // safe because PAL max supply is 10M tokens
@@ -48,4 +48,20 @@ interface IHolyPaladinToken {
     ) external view returns (TotalLock memory);
 
 	function totalSupply() external view returns(uint256);
+
+    function increaseLock(uint256) external;
+
+    function increaseLockDuration(uint256) external;
+
+    function lock(uint256, uint256) external;
+
+    function unlock() external;
+
+    function stake(uint256) external;
+
+    function delegate(address) external;
+
+    function estimateClaimableRewards(address) external view returns(uint256);
+
+    function claim(uint256) external;
 }
