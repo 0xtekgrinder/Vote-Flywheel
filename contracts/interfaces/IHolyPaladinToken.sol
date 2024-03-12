@@ -66,4 +66,6 @@ interface IHolyPaladinToken {
     function claim(uint256) external;
 
     function delegates(address) external view returns(address);
+
+    function availableBalanceOf(address) external view returns(uint256);
 }
